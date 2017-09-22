@@ -36,3 +36,4 @@
     最开始是看到b站大神把视频转换称动态字符画，比如：
     [bilibiliup:weevus](https://www.bilibili.com/video/av430899/?from=search&seid=6089732846271652721)
     [源代码](https://www.bilibili.com/video/av419052/)
+    >另外感谢赵展艺和祝轲同学的帮助！
