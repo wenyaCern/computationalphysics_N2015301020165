@@ -32,4 +32,5 @@
       
         该语句可以在1s后将“information”刷新为“aaaaaaaaaaa”,但一旦加上换行符，就只能替换上一个print的最后一行；后来了解到python的设计是仿照老式打印         机，按行处理打印内容的， '\r' 指令只能将光标移动到本行之前，不能处理上一行及以前的字符串，放弃。
      
-   - 最开始是看到b站大神把视频转换称动态字符画，代码很复杂。例如![烂苹果]（https://www.bilibili.com/video/av430899/?from=search&seid=6089732846271652721）
+   - 最开始是看到b站大神把视频转换称动态字符画，代码很复杂。例如
+   ![]（https://www.bilibili.com/video/av430899/?from=search&seid=6089732846271652721）
