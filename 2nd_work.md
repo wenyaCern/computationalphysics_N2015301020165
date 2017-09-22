@@ -1,7 +1,7 @@
 #在屏幕上用字符画打印自己的名字，平让它“动起来”
 
 ##最终成果
-
+![image](https://github.com/amanaaaa/computationalphysics_N2015301020165/blob/master/2en_work.gif)
 ##使用语句包括
 
    - print('\n')
