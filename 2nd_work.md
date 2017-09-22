@@ -1,4 +1,4 @@
-# 在屏幕上用字符画打印自己的名字，平让它“动起来”
+# 在屏幕上用字符画打印自己的名字，并让它“动起来”
 
 ## 最终成果
 ![image](https://github.com/amanaaaa/computationalphysics_N2015301020165/blob/master/2en_work.gif)
@@ -28,7 +28,6 @@
       
       'print(end='\raaaaaaaaaaa')'
       
-     该语句可以在1s后将“information”刷新为“aaaaaaaaaaa”,但一旦加上换行符，就只能替换上一个print的最后一行；后来了解到python的设计是仿照老式打印机，
-     按行处理打印内容的，'\r'指令只能将光标移动到本行之前，不能处理上一行及以前的字符串，放弃。
+        该语句可以在1s后将“information”刷新为“aaaaaaaaaaa”,但一旦加上换行符，就只能替换上一个print的最后一行；后来了解到python的设计是仿照老式打印         机，按行处理打印内容的， '\r' 指令只能将光标移动到本行之前，不能处理上一行及以前的字符串，放弃。
      
    - 最开始是看到b站大神把视频转换称动态字符画，代码很复杂。
