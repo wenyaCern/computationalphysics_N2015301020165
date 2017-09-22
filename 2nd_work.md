@@ -4,12 +4,46 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ##最终成果
 
 
 
 
+
+
+
+
+
+
+
+
 ![image](https://github.com/amanaaaa/computationalphysics_N2015301020165/blob/master/2en_work.gif)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
