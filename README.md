@@ -7,7 +7,7 @@
 ## 1st Work
  * 1 注册Gitup账户
  * 2 按照Markdown语法书写第一个README.md，内容为本学期作业连接
- * 3 用简单的语言在屏幕上写出自己的姓名 [1st_work](computationalphysics_N2015301020165/work_1st/1st_work.md)
+ * 3 用简单的语言在屏幕上写出自己的姓名 [1st_work](https://github.com/amanaaaa/computationalphysics_N2015301020165/blob/master/work_1st/1st_work.md)
 ## 2st Work
  * 1 写出自己姓名的字符画并让它“动起来” [2nd_work](https://github.com/amanaaaa/computationalphysics_N2015301020165/blob/master/2nd_work.md)
  * 2 学习python编程语言。
