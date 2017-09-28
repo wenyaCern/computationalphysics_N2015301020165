@@ -2,7 +2,7 @@
 # 在屏幕上用字符画打印自己的名字，并让它“动起来”
 
 ## 最终成果
-![image](utationalphysics_N2015301020165/blob/master/work_2nd/2en_work.gif)
+![image](https://github.com/amanaaaa/computationalphysics_N2015301020165/blob/master/work_2nd/2en_work.gif)
 
 ## 使用语句包括
 
