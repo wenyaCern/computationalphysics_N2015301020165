@@ -26,5 +26,4 @@ while t<=5:
     
     v=v+a*math.exp(-b*t)*ts #taylor expansion with Euler's method#
     
-    t=t+ts
-'
+    t=t+ts'
