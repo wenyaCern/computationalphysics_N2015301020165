@@ -11,3 +11,5 @@
 ## 2st Work
  * 1 写出自己姓名的字符画并让它“动起来” [2nd_work](https://github.com/amanaaaa/computationalphysics_N2015301020165/blob/master/work_2nd/2nd_work.md)
  * 2 学习python编程语言。
+## 3rd Work
+* chapter 1 NO 1.3习题[3rd_work](https://www.zybuluo.com/amaoaaaa/note/903022)
