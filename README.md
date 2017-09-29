@@ -13,3 +13,5 @@
  * 2 学习python编程语言。
 ## 3rd Work
 * chapter 1 NO 1.3习题[3rd_work](https://www.zybuluo.com/amaoaaaa/note/903022)
+  第三次作业直接成果展示
+  ![image](https://www.zybuluo.com/amaoaaaa/note/903022)
