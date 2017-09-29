@@ -14,4 +14,4 @@
 ## 3rd Work
 * chapter 1 NO 1.3习题[3rd_work](https://www.zybuluo.com/amaoaaaa/note/903022)
   第三次作业直接成果展示
-  ![image](https://www.zybuluo.com/amaoaaaa/note/903022)
+  ![image](https://github.com/amanaaaa/computationalphysics_N2015301020165/blob/master/work_3rd/6X%40%7BBLRXASDI4~A4R%5D8JP%5DQ.png)
