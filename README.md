@@ -18,7 +18,7 @@
  
  ![image](https://github.com/amanaaaa/computationalphysics_N2015301020165/blob/master/work_3rd/6X%40%7BBLRXASDI4~A4R%5D8JP%5DQ.png)
 ## 4th Work
-* chapter 2 课后习题 NO 2.10 [4rd_work]（https://www.zybuluo.com/amaoaaaa/note/910824）
+* chapter 2 课后习题 NO 2.10 [4rd_work](https://www.zybuluo.com/amaoaaaa/note/910824)
 
   第四次作业直接成果展示
  
