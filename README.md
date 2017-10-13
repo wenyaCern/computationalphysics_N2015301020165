@@ -21,8 +21,8 @@
  * 1 chapter 2 课后习题 NO 2.10 [4rd_work](https://www.zybuluo.com/amaoaaaa/note/910824)
 
   第四次作业直接成果展示
-  ![image](https://github.com/amanaaaa/computationalphysics_N2015301020165/blob/master/work_4th/1.png)
   
+  ![image](https://github.com/amanaaaa/computationalphysics_N2015301020165/blob/master/work_4th/1.png) 
   ![image](https://github.com/amanaaaa/computationalphysics_N2015301020165/blob/master/work_4th/2.png)
   * 2 pygame
  
