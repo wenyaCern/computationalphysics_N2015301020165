@@ -1,0 +1,65 @@
+import math
+import pylab as pl
+
+dt=0.1
+g=9.8
+a=30*math.pi/180
+b=45*math.pi/180
+c=60*math.pi/180
+angle = [a,b,c]
+v_0=50
+
+t1=[0]
+v_x1=[v_0*math.cos(angle[0])]
+v_y1=[v_0*math.sin(angle[0])]
+x1=[0]
+y1=[0]
+while x1[-1]<=300:
+     
+     x1.append(x1[-1]+v_x1[-1]*dt)
+     y1.append(y1[-1]+v_y1[-1]*dt)
+     v_x1.append(v_x1[-1])
+     v_y1.append(v_y1[-1] - g*dt)
+     t1.append(t1[-1]+dt)  
+print ('初始速度：',v_0,
+       '\n','落点：', 'x:',x1[-1],'y:',y1[-1],
+       '\n''飞行时间：',t1[-1])
+       
+t2=[0]
+v_x2=[v_0*math.cos(angle[1])]
+v_y2=[v_0*math.sin(angle[1])]
+x2=[0]
+y2=[0]
+while x2[-1]<=300:
+     
+     x2.append(x2[-1]+v_x2[-1]*dt)
+     y2.append(y2[-1]+v_y2[-1]*dt)
+     v_x2.append(v_x2[-1])
+     v_y2.append(v_y2[-1] - g*dt)
+     t2.append(t2[-1]+dt)  
+
+t3=[0]
+v_x3=[v_0*math.cos(angle[2])]
+v_y3=[v_0*math.sin(angle[2])]
+x3=[0]
+y3=[0]
+while x3[-1]<=300:
+     
+     x3.append(x3[-1]+v_x3[-1]*dt)
+     y3.append(y3[-1]+v_y3[-1]*dt)
+     v_x3.append(v_x3[-1])
+     v_y3.append(v_y3[-1] - g*dt)
+     t3.append(t3[-1]+dt)  
+print ('初始速度：',v_0, 
+       '\n','落点：', 'x:',x3[-1],'y:',y3[-1],
+       '\n''飞行时间：',t3[-1])
+pl.figure(figsize=(7,10))
+pl.plot(x1,y1,label="$30^\circ$",color="red",linewidth=2)
+pl.plot(x2,y2,label="$45^\circ$",color="green",linewidth=2)
+pl.plot(x3,y3,label="$60^\circ$",color="blue",linewidth=2)
+pl.xlabel("x(m)")
+pl.ylabel("y(m)")
+pl.title('without drag')
+
+pl.ylim(0,100)
+pl.show()
