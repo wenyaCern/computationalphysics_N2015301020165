@@ -15,9 +15,9 @@ theta_list=[]
 delta_list=[]
 for i in range(30,60):
     theta=i*(math.pi)/180
-    while y[-1]>=0:
-        v_x=[v_0*math.cos(theta)]
-        v_y=[v_0*math.sin(theta)]
+    v_x=[v_0*math.cos(theta)]
+    v_y=[v_0*math.sin(theta)]
+    while y[-1]>=0：
         M_list=[]
         x.append(x[-1]+v_x[-1]*dt)
         y.append(y[-1]+v_y[-1]*dt)
