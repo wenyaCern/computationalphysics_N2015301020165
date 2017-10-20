@@ -1,0 +1,63 @@
+import math
+import pylab as pl
+from mpl_toolkits.mplot3d import Axes3D
+
+dt=0.1
+g=9.8
+a=30*math.pi/180
+b=45*math.pi/180
+c=60*math.pi/180
+angle = [a,b,c]
+m=70
+s_0=4.1e-4*m
+w=2000*2*math.pi/60
+v_0=500
+B2_0=0.0106
+t=[0]
+v_x=[v_0*math.cos(angle[1])]
+v_y=[v_0*math.sin(angle[1])]
+v_z=[0]
+x=[0]
+y=[0]
+z=[0]
+while y[-1]>=0:
+     z.append(z[-1]+v_z[-1]*dt)
+     x.append(x[-1]+v_x[-1]*dt)
+     y.append(y[-1]+v_y[-1]*dt)
+     v_z.append(v_z[-1] - s_0*w*v_x[-1]*dt/m)
+     v_x.append(v_x[-1] - B2_0*v_0*v_x[-1]*dt/m)
+     v_y.append(v_y[-1] - g*dt)
+     t.append(t[-1]+dt)  
+print ('初始速度：',v_0,
+       '\n','初射角度',angle[1],'rad',
+       '\n','落点：', 'x:',x[-2],'y:',y[-2],'z:',z[-2],
+       '\n''飞行时间：',t[-2])
+t1=[0]
+v_x1=[v_0*math.cos(angle[1])]
+v_y1=[v_0*math.sin(angle[1])]
+v_z1=[0]
+x1=[0]
+y1=[0]
+z1=[0]
+while y1[-1]>=0:
+     z1.append(z1[-1]+v_z1[-1]*dt)
+     x1.append(x1[-1]+v_x1[-1]*dt)
+     y1.append(y1[-1]+v_y1[-1]*dt)
+     v_z1.append(v_z1[-1] - s_0*w*v_x1[-1]*dt/m)
+     v_x1.append(v_x1[-1] - B2_0*v_0*v_x1[-1]*dt/m)
+     v_y1.append(v_y1[-1] - g*dt-B2_0*v_0*v_y1[-1]*dt/m)
+     t1.append(t1[-1]+dt)  
+
+print ('初始速度：',v_0,
+       '\n','初射角度',angle[1],'rad',
+       '\n','落点：', 'x:',x1[-2],'y:',y1[-2],'z:',z1[-2],
+       '\n''飞行时间：',t1[-2])
+
+fig = pl.figure()
+ax = Axes3D(fig)
+ax.plot(z,x,y,'r')
+ax.plot(z1,x1,y1,'g')
+pl.xlabel('z(m)')
+pl.ylabel('x(m)')
+pl.title('fig2')
+pl.show()
