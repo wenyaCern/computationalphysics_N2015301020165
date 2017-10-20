@@ -1,0 +1,56 @@
+import math
+import pylab as pl
+
+dt=0.1
+g=9.8
+a=30*math.pi/180
+b=45*math.pi/180
+c=60*math.pi/180
+angle = [a,b,c]
+m=70
+s_0=4.1e-4*m
+w=2000*2*math.pi/60
+v_0=500
+B2_0=0.0106
+t=[0]
+v_x=[v_0*math.cos(angle[1])]
+v_y=[v_0*math.sin(angle[1])]
+v_z=[0]
+x=[0]
+y=[0]
+z=[0]
+while y[-1]>=0:
+     x.append(x[-1]+v_x[-1]*dt)
+     y.append(y[-1]+v_y[-1]*dt)
+     v_x.append(v_x[-1] - B2_0*v_0*v_x[-1]*dt/m)
+     v_y.append(v_y[-1] - g*dt - s_0*w*v_x[-1]*dt/m)
+     t.append(t[-1]+dt)  
+print ('初始速度：',v_0,
+       '\n','初射角度',angle[1],'rad',
+       '\n','落点：', 'x:',x[-2],'y:',y[-2],
+       '\n''飞行时间：',t[-2])
+t1=[0]
+v_x1=[v_0*math.cos(angle[1])]
+v_y1=[v_0*math.sin(angle[1])]
+v_z1=[0]
+x1=[0]
+y1=[0]
+z1=[0]
+while y1[-1]>=0:
+     x1.append(x1[-1]+v_x1[-1]*dt)
+     y1.append(y1[-1]+v_y1[-1]*dt)
+     v_x1.append(v_x1[-1] - B2_0*v_0*v_x1[-1]*dt/m)
+     v_y1.append(v_y1[-1] - g*dt + s_0*w*v_x[-1]*dt/m)
+     t1.append(t1[-1]+dt)  
+
+print ('初始速度：',v_0,
+       '\n','初射角度',angle[1],'rad',
+       '\n','落点：', 'x:',x1[-2],'y:',y1[-2],
+       '\n''飞行时间：',t1[-2])
+
+pl.plot(x,y,'b')
+pl.plot(x1,y1,'g')
+pl.xlabel('z(m)')
+pl.ylabel('x(m)')
+pl.title('fig4')
+pl.show()
