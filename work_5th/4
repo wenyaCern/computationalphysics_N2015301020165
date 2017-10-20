@@ -48,9 +48,11 @@ print ('初始速度：',v_0,
        '\n','落点：', 'x:',x1[-2],'y:',y1[-2],
        '\n''飞行时间：',t1[-2])
 
-pl.plot(x,y,'b')
-pl.plot(x1,y1,'g')
-pl.xlabel('z(m)')
-pl.ylabel('x(m)')
+
+pl.plot(x,y,label="front",color="red",linewidth=2)
+pl.plot(x1,y1,label="back",color="green",linewidth=2)
+pl.xlabel('x(m)')
+pl.ylabel('y(m)')
 pl.title('fig4')
+pl.legend()
 pl.show()
