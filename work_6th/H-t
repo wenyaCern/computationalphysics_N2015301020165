@@ -1,0 +1,59 @@
+import math
+import pylab as pl
+
+dt=0.04
+g=9.8
+l=9.8
+Omega=0.66667
+m=7
+
+
+
+FD=0
+q=0.5
+t=[0]
+theta=[0.2]
+omega=[0]
+H=[0]
+while t[-1]<=61:
+    if -math.pi<=theta[-1]<=math.pi:
+        omega.append(omega[-1]-(g/l*math.sin(theta[-1])+q*omega[-1]-FD*math.sin(Omega*t[-1]))*dt)
+        theta.append(theta[-1]+omega[-1]*dt)
+        H.append(1/2*m*math.pow(l,2)*math.pow(omega[-1],2)-l*math.cos(theta[-1]))
+    elif theta[-1]>math.pi:
+        theta.append(theta[-1]-2*math.pi)
+    else:
+        theta.append(theta[-1]+2*math.pi)
+    t.append(t[-1]+dt)
+FD1=0.5
+q=0.5
+t1=[0]
+theta1=[0]
+omega1=[0]
+H1=[0]
+while t1[-1]<=61:
+        omega1.append(omega1[-1]-(g/l*math.sin(theta1[-1])+q*omega1[-1]-FD1*math.sin(Omega*t1[-1]))*dt)
+        theta1.append(theta1[-1]+omega1[-1]*dt)
+        H1.append(1/2*m*math.pow(l,2)*math.pow(omega1[-1],2)-l*math.cos(theta1[-1]))
+        t1.append(t1[-1]+dt)
+FD2=1.2
+q=0.5
+t2=[0]
+theta2=[0]
+omega2=[0]
+H2=[0]
+while t2[-1]<=61:
+        omega2.append(omega2[-1]-(g/l*math.sin(theta2[-1])+q*omega2[-1]-FD2*math.sin(Omega*t2[-1]))*dt)
+        theta2.append(theta2[-1]+omega2[-1]*dt)
+        H2.append(1/2*m*math.pow(l,2)*math.pow(omega2[-1],2)-l*math.cos(theta2[-1]))
+        t2.append(t2[-1]+dt)
+    
+
+pl.figure(figsize=(15,8))
+pl.plot(t2,H2,label="FD=0",color="GREEN",linewidth=2)
+
+pl.xlabel("time(s)")
+pl.ylabel("H(J)")
+pl.title('H versus time')
+pl.legend()
+pl.show()
