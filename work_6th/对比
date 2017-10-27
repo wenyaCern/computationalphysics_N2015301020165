@@ -1,0 +1,38 @@
+import math
+import pylab as pl
+
+dt=0.04
+g=9.8
+l=9.8
+Omega=0.67
+FD2=1.2
+q=0.5
+t=[0]
+theta=[0]
+omega=[0]
+while t[-1]<=61:
+    if -math.pi<=theta[-1]<=math.pi:
+        omega.append(omega[-1]-(g/l*math.sin(theta[-1])+q*omega[-1]-FD2*math.sin(Omega*t[-1]))*dt)
+        theta.append(theta[-1]+omega[-1]*dt)
+    elif theta[-1]>math.pi:
+        theta.append(theta[-1]-2*math.pi)
+    else:
+        theta.append(theta[-1]+2*math.pi)
+    t.append(t[-1]+dt)
+
+
+t2=[0]
+theta2=[0]
+omega2=[0]
+while t2[-1]<=61:
+        omega2.append(omega2[-1]-(g/l*math.sin(theta2[-1])+q*omega2[-1]-FD2*math.sin(Omega*t2[-1]))*dt)
+        theta2.append(theta2[-1]+omega2[-1]*dt)
+        t2.append(t2[-1]+dt)
+pl.figure(figsize=(10,8))
+pl.plot(t,theta,color="blue",linewidth=2)
+pl.plot(t2,theta2,color="yellow",linewidth=2)
+pl.xlabel("time(s)")
+pl.ylabel("theta(radians)")
+pl.title('theta versus time')
+pl.legend()
+pl.show()
