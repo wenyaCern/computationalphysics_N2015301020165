@@ -29,3 +29,5 @@
  
  第五次作业成果直接展示
   ![image](https://github.com/amanaaaa/computationalphysics_N2015301020165/blob/master/work_5th/fig5.png)
+## 6th Work
+* chapter 3 课后习题 NO 3.11 [6th_work](https://www.zybuluo.com/amaoaaaa/note/929584)
