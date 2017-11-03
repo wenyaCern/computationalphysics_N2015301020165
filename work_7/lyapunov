@@ -1,0 +1,45 @@
+import math
+import pylab as pl
+
+dt=0.0001
+sigma=10
+b=8.0/3.0
+
+t=[0]
+x=[1]
+y=[0]
+z=[0]
+sx=[1.0001]
+sy=[0.0001]
+sz=[0.0001]
+sep=[0]
+sepx=[0]
+sepy=[0]
+sepz=[0]   
+count=0      # not Lyapunov exponent
+while t[-1]<=51:
+    x.append(x[-1]+(sigma*(y[-1]-x[-1]))*dt)
+    y.append(y[-1]-(x[-1]*z[-1]-20*x[-1]+y[-1])*dt)
+    z.append(z[-1]+(x[-1]*y[-1]-b*z[-1])*dt)
+    sx.append(sx[-1]+(sigma*(sy[-1]-sx[-1]))*dt)
+    sy.append(sy[-1]-(sx[-1]*sz[-1]-20*sx[-1]+sy[-1])*dt)
+    sz.append(sz[-1]+(sx[-1]*sy[-1]-b*sz[-1])*dt)
+    t.append(t[-1]+dt)    
+    count=count+1
+Dx_0=math.fabs(x[0]-sx[0])
+Dx_n=math.fabs(x[-1]-sx[-1])
+Dy_0=math.fabs(y[0]-sy[0])
+Dy_n=math.fabs(y[-1]-sy[-1])
+Dz_0=math.fabs(z[0]-sz[0])
+Dz_n=math.fabs(z[-1]-sz[-1])
+n=count
+lambdax=1/n*math.log(Dx_n/Dx_0)
+lambday=1/n*math.log(Dy_n/Dy_0)
+lambdaz=1/n*math.log(Dz_n/Dz_0)
+lambdaa=1/n*math.log(math.sqrt(math.pow(Dx_n,2)+math.pow(Dy_n,2)+math.pow(Dz_n,2))/
+                     math.sqrt(math.pow(Dx_0,2)+math.pow(Dy_0,2)+math.pow(Dz_0,2)))
+print('迭代次数=',n)
+print('lambdax=',lambdax)
+print('lambday=',lambday)
+print('lambdaz=',lambdaz)
+print('lambdaa=',lambdaa)
