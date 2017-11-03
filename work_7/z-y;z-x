@@ -23,7 +23,7 @@ while t[-1]<=500:
     t.append(t[-1]+dt)
 pl.figure(figsize=(10,10))
 pl.scatter(x1,z1,label="r=25",color="blue",linewidth=1)
-pl.xlabel("y")
+pl.xlabel("x")
 pl.ylabel("z")
 pl.title('Phase space plot:z versus x when y=0')
 pl.legend()
