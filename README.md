@@ -34,3 +34,9 @@
 
   第六次作业成果直接展示
   ![image](https://github.com/amanaaaa/computationalphysics_N2015301020165/blob/master/work_6th/6th%20fig5.png)
+## 7th Work
+* chapter 3 课后习题 NO 3.28 [7th_work](https://www.zybuluo.com/amaoaaaa/note/935951)
+
+
+  第七次作业成果直接展示
+  ![image](https://github.com/amanaaaa/computationalphysics_N2015301020165/blob/master/work_6th/6th%20fig5.png)
