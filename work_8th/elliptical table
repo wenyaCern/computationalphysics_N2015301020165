@@ -1,0 +1,43 @@
+v_x_0=1
+v_y_0=0.1
+dt=0.01
+sdt=0.0001
+end_t=10000
+x=[3]
+y=[0.001]
+v_x=[]
+v_y=[]
+v_x.append(v_x_0)
+v_y.append(v_y_0)
+
+for i in range(int(end_t/dt)):
+    l1=math.sqrt(math.pow(x[i]-3,2)+math.pow(y[i],2))
+    l2=math.sqrt(math.pow(x[i]+3,2)+math.pow(y[i],2))
+    if l1+l2<9.9:
+         x.append(x[i]+v_x[i]*dt)
+         y.append(y[i]+v_y[i]*dt)
+         v_x.append(v_x[i])
+         v_y.append(v_y[i])
+    elif 0.0001<abs(10-l1-l2)<0.1:
+         x.append(x[i]+v_x[i]*sdt)
+         y.append(y[i]+v_y[i]*sdt)
+         v_x.append(v_x[i])
+         v_y.append(v_y[i])
+    elif abs(10-l1-l2)<0.0001:
+        vi_vt_xn=v_x[i]*(x[i]/25/(math.sqrt(math.pow(x[i]/25,2)+math.pow(y[i]/16,2))))
+        vi_vt_yn=v_y[i]*(y[i]/16/(math.sqrt(math.pow(x[i]/25,2)+math.pow(y[i]/16,2))))
+        vi_vt_x=(vi_vt_xn+vi_vt_yn)*(x[i]/25/(math.sqrt(math.pow(x[i]/25,2)+math.pow(y[i]/16,2))))##vertical vxi
+        vi_vt_y=(vi_vt_xn+vi_vt_yn)*(y[i]/16/(math.sqrt(math.pow(x[i]/25,2)+math.pow(y[i]/16,2))))##vertical vyi
+        vi_pr_x=v_x[i]-vi_vt_x#parallel vxi
+        vi_pr_y=v_y[i]-vi_vt_y#parallel vyi
+        v_x.append(-vi_vt_x+vi_pr_x) 
+        v_y.append(-vi_vt_y+vi_pr_y)
+        x.append(x[i]+v_x[i+1]*dt)
+        y.append(y[i]+v_y[i+1]*dt)
+    elif l1+l2>10:
+        pass
+plt.figure(figsize=(10,10))
+plt.plot(x,y)
+plt.xlabel(u'x',fontsize=14)
+plt.ylabel(u'y',fontsize=14)
+plt.show()
