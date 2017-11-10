@@ -43,3 +43,5 @@
   ## 第七次作业补充（烦请助教小哥哥转告蔡老师，计算的李雅普诺夫指数是这样随r变化的）
   ![image](https://github.com/amanaaaa/computationalphysics_N2015301020165/blob/master/work_7/%E6%9D%8E%E9%9B%85%E6%99%AE%E8%AF%BA%E5%A4%AB%E6%8C%87%E6%95%B0%20%E5%A4%A7%E5%9B%BE.png)
   其中，lanbdaa是整体的李雅普诺夫指数（黄色线），可以看到随着r增大,lambdaa没有小于0的地方；这张图的初始偏差δx,δy,δz均为0.0001
+ ## 8th Work
+ * chapter 3 课后习题 NO 3.31 [8th_work](https://www.zybuluo.com/amaoaaaa/note/946556)
