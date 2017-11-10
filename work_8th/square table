@@ -1,0 +1,116 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import math
+
+v_x_0=1
+v_y_0=0.2
+dt=0.01
+sdt=0.0001
+end_t=10000
+x=[3]
+y=[2]
+v_x=[]
+v_y=[]
+v_x.append(v_x_0)
+v_y.append(v_y_0)
+
+for i in range(int(end_t/dt)):
+    if abs(math.sqrt(math.pow(x[i],2)+math.pow(y[i],2))-1)>0.1:
+        if  abs(x[i])<4.9:
+            if  abs(y[i])<4.9:
+                x.append(x[i]+v_x[i]*dt)
+                y.append(y[i]+v_y[i]*dt)
+                v_x.append(v_x[i])
+                v_y.append(v_y[i])
+            elif 4.9<abs(y[i])<5:
+                if  abs(abs(y[i])-5)<0.0001:
+                    x.append(x[i]+v_x[i]*dt)
+                    y.append(y[i]-v_y[i]*dt)
+                    v_x.append(v_x[i])
+                    v_y.append(-v_y[i])
+                elif abs(abs(y[i])-5)>0.0001:
+                    x.append(x[i]+v_x[i]*sdt)
+                    y.append(y[i]+v_y[i]*sdt)
+                    v_x.append(v_x[i])
+                    v_y.append(v_y[i])
+            elif abs(y[i])>5:
+                pass
+        elif 4.9<abs(x[i])<5:
+            if  abs(y[i])<4.9:
+                if  abs(abs(x[i])-5)<0.0001:
+                        x.append(x[i]-v_x[i]*dt)
+                        y.append(y[i]+v_y[i]*dt)
+                        v_x.append(-v_x[i])
+                        v_y.append(v_y[i])
+                elif abs(abs(x[i])-5)>0.0001:
+                        x.append(x[i]+v_x[i]*sdt)
+                        y.append(y[i]+v_y[i]*sdt)
+                        v_x.append(v_x[i])
+                        v_y.append(v_y[i])
+            elif 4.9<abs(y[i])<5:
+                if  abs(abs(y[i])-5)<0.0001:
+                    if  abs(abs(x[i])-5)<0.0001:
+                            x.append(x[i]-v_x[i]*dt)
+                            y.append(y[i]-v_y[i]*dt)
+                            v_x.append(-v_x[i])
+                            v_y.append(-v_y[i])
+                    elif abs(abs(x[i])-5)>0.0001:
+                            x.append(x[i]+v_x[i]*dt)
+                            y.append(y[i]-v_y[i]*dt)
+                            v_x.append(v_x[i])
+                            v_y.append(-v_y[i])
+                elif  abs(abs(y[i])-5)>0.0001:
+                    if  abs(abs(x[i])-5)<0.0001:
+                            x.append(x[i]-v_x[i]*dt)
+                            y.append(y[i]+v_y[i]*dt)
+                            v_x.append(-v_x[i])
+                            v_y.append(v_y[i])
+                    elif abs(abs(x[i])-5)>0.0001:
+                            x.append(x[i]+v_x[i]*sdt)
+                            y.append(y[i]+v_y[i]*sdt)
+                            v_x.append(v_x[i])
+                            v_y.append(v_y[i])
+            elif abs(y[i])>5:
+                    pass
+        elif abs(x[i])>5:
+            pass
+    elif 0.0001<abs(math.sqrt(math.pow(x[i],2)+math.pow(y[i],2))-1)<0.1:
+        x.append(x[i]+v_x[i]*sdt)
+        y.append(y[i]+v_y[i]*sdt)
+        v_x.append(v_x[i])
+        v_y.append(v_y[i])
+    elif abs(math.sqrt(math.pow(x[i],2)+math.pow(y[i],2))-1)<0.0001:
+        vi_vt_xn=v_x[i]*(x[i]/(math.sqrt(math.pow(x[i],2)+math.pow(y[i],2))))
+        vi_vt_yn=v_y[i]*(y[i]/(math.sqrt(math.pow(x[i],2)+math.pow(y[i],2))))
+        vi_vt_x=(vi_vt_xn+vi_vt_yn)*(x[i]/(math.sqrt(math.pow(x[i],2)+math.pow(y[i],2))))##vertical vxi
+        vi_vt_y=(vi_vt_xn+vi_vt_yn)*(y[i]/(math.sqrt(math.pow(x[i],2)+math.pow(y[i],2))))##vertical vyi
+        vi_pr_x=v_x[i]-vi_vt_x#parallel vxi
+        vi_pr_y=v_y[i]-vi_vt_y#parallel vyi
+        v_x.append(-vi_vt_x+vi_pr_x) 
+        v_y.append(-vi_vt_y+vi_pr_y)
+        x.append(x[i]+v_x[i+1]*dt)
+        y.append(y[i]+v_y[i+1]*dt)
+    elif abs(math.sqrt(math.pow(x[i],2)+math.pow(y[i],2)))<1:
+        pass
+theta=[0]      
+dtheta=0.1
+t=[0]
+X=[]
+Y=[]
+while t[-1]<500:
+    X.append(math.cos(t[-1]*math.pi/180))
+    Y.append(math.sin(t[-1]*math.pi/180))
+    t.append(t[-1]+dt)
+    
+    
+  
+plt.figure(figsize=(10,10))
+plt.plot(X,Y,'r',linewidth=3)
+plt.plot((5,5),(5,-5),'r',linewidth=3)
+plt.plot((5,-5),(-5,-5),'r',linewidth=3)
+plt.plot((-5,-5),(-5,5),'r',linewidth=3)
+plt.plot((-5,5),(5,5),'r',linewidth=3)
+plt.plot(x,y)
+plt.xlabel(u'x',fontsize=14)
+plt.ylabel(u'y',fontsize=14)
+plt.show()
