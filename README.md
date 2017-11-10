@@ -45,3 +45,5 @@
   其中，lanbdaa是整体的李雅普诺夫指数（黄色线），可以看到随着r增大,lambdaa没有小于0的地方；这张图的初始偏差δx,δy,δz均为0.0001
  ## 8th Work
  * chapter 3 课后习题 NO 3.31 [8th_work](https://www.zybuluo.com/amaoaaaa/note/946556)
+ 第八次作业成果直接展示
+![](https://github.com/amanaaaa/computationalphysics_N2015301020165/blob/master/8e_fig0.png)
