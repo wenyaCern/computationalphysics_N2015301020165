@@ -1,0 +1,125 @@
+import pygame
+from pygame.locals import *
+from sys import exit
+import math
+import random
+
+background_image_filename ='background.png'
+sprite_image_filename = '小千.png'
+boom_image_filename = '尤莉.png'
+food_image_filename = '芋头.png'
+
+pygame.init()
+ 
+screen = pygame.display.set_mode((1000, 700), 0, 32)
+ 
+background = pygame.image.load(background_image_filename).convert()
+sprite = pygame.image.load(sprite_image_filename)
+boom = pygame.image.load(boom_image_filename)
+food = pygame.image.load(food_image_filename)
+# falling ball 
+x=200.0
+y = 0.
+g=0.001
+v_y=0 
+dt=3
+m=10
+
+# qiaoqioaban
+x_1=0
+y_1=670
+x_2=500
+y_2=530
+turn=False
+sx=20
+sy=620
+
+
+#boom
+def bomm(xb,yb,v_xb,v_yb):
+    xb+=v_xb*dt
+    yb-=v_yb*dt
+    v_xb=v_xb
+    v_yb=v_yb-g*dt
+    xb+=v_xb*dt
+    return(xb,yb,v_xb,v_yb)
+xb=0
+yb=550
+fall = False
+fly = False
+angle=45
+mb=35
+w=(255,255,255)
+b=(0,0,255)
+dtt=5
+
+xf=400
+yf=550
+xff=xf+800*random.random()
+yff=yf
+while True:
+    #设置退出
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            exit()
+    #匀速下落
+    screen.fill(w)
+
+
+    pressed = pygame.key.get_pressed()
+    if pressed[pygame.K_LEFT] and fall==False:
+        x -= 0.5
+    if pressed[pygame.K_RIGHT] and fall==False:
+        x += 0.5
+    if pressed[pygame.K_DOWN]:
+        fall=True
+    if fall==True and 700-y>50:
+        v_y =v_y+g*dt
+        distance_moved = v_y*dt
+        y=y+distance_moved
+    if fall==True and 60<(-0.28*x+y_1)-y<61:
+        fly=True
+        turn=True
+        alpha=abs(x-100)/100
+        k=m/mb
+        v_xb=k*alpha*v_y*math.cos(angle/180*math.pi)
+        v_yb=k*alpha*v_y*math.sin(angle/180*math.pi)
+    if fly==True:
+        xb=xb+v_xb*dtt
+        yb=yb-v_yb*dtt
+        v_xb=v_xb
+        v_yb=v_yb-g*dtt
+    if turn==True:
+        x_1=0
+        y_1=530
+        x_2=500
+        y_2=670
+    
+    if (-0.28*x+y_1)-y<=0 :
+        y=0.28*x+y_2
+        fall=False
+
+    if 700-yb<=0:
+        xb=0
+        yb=550
+        x=200.0
+        y = 0.
+        v_y=0
+        x_1=0
+        y_1=670
+        x_2=500
+        y_2=530
+        xff=xf+800*random.random()
+        yff=yf
+        turn=False
+        fall = False
+        fly = False
+    
+
+    screen.blit(background, (0,0))
+    pygame.draw.line(screen,b,(x_1,y_1),(x_2,y_2))
+    screen.blit(food, (xff,yff))
+    screen.blit(sprite, (x, y))
+    screen.blit(boom, (xb,yb))
+    
+    pygame.display.update()
