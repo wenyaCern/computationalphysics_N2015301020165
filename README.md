@@ -47,3 +47,8 @@
  * chapter 3 课后习题 NO 3.31 [8th_work](https://www.zybuluo.com/amaoaaaa/note/946556)
  第八次作业成果直接展示
 ![](https://github.com/amanaaaa/computationalphysics_N2015301020165/blob/master/8e_fig0.png)
+## 8th Work
+* chapter 4 NO.4.16 
+[9th_work](https://www.zybuluo.com/amaoaaaa/note/970765)
+ 第八次作业成果直接展示
+ ![]()
