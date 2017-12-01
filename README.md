@@ -52,4 +52,5 @@
 [9th_work](https://www.zybuluo.com/amaoaaaa/note/970765)
  第九次作业成果直接展示
  ![](https://raw.githubusercontent.com/amanaaaa/computationalphysics_N2015301020165/master/work_9/9_7.png)
- 付：期中作业（没有单独写成报告形式，或许没看到）[](https://github.com/amanaaaa/computationalphysics_N2015301020165/blob/master/mid-term/code)
+ 付：期中作业（没有单独写成报告形式，或许没看到）
+ [mid term](https://github.com/amanaaaa/computationalphysics_N2015301020165/blob/master/mid-term/code)
