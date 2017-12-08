@@ -47,7 +47,7 @@
  * chapter 3 课后习题 NO 3.31 [8th_work](https://www.zybuluo.com/amaoaaaa/note/946556)
  第八次作业成果直接展示
 ![](https://github.com/amanaaaa/computationalphysics_N2015301020165/blob/master/8e_fig0.png)
-## 8th Work
+## 9th Work
 * chapter 4 NO.4.16 
 [9th_work](https://www.zybuluo.com/amaoaaaa/note/970765)
 
@@ -57,3 +57,12 @@
  
  付：期中作业（没有单独写成报告形式，或许没看到）
  [mid term](https://github.com/amanaaaa/computationalphysics_N2015301020165/blob/master/mid-term/code)
+ 
+ ## 10th Work
+* chapter 5 NO.5.3 
+[10th_work](https://www.zybuluo.com/amaoaaaa/note/979433)
+
+第十次作业成果直接展示
+
+![](https://raw.githubusercontent.com/amanaaaa/computationalphysics_N2015301020165/master/work_10/3.png)
+ 
