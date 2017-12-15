@@ -67,8 +67,8 @@
 ![](https://raw.githubusercontent.com/amanaaaa/computationalphysics_N2015301020165/master/work_10/3.png)
  ## 11th Work
 * chapter 5 NO.5.3 
-[11th_work](https://www.zybuluo.com/mdeditor#985411)
-
+[11th_work](https://raw.githubusercontent.com/amanaaaa/computationalphysics_N2015301020165/master/work_11/2017-12-16_010941.png)
+（本次作业出了点小意外所以结果用截图上传）
 第十一次作业成果直接展示
 
 ![](https://github.com/amanaaaa/computationalphysics_N2015301020165/blob/master/work_11/11_11.png)
