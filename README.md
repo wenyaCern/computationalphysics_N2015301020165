@@ -62,7 +62,14 @@
 * chapter 5 NO.5.3 
 [10th_work](https://www.zybuluo.com/amaoaaaa/note/979433)
 
-第十次作业成果直接展示
+第十一次作业成果直接展示
+
+![](https://raw.githubusercontent.com/amanaaaa/computationalphysics_N2015301020165/master/work_10/3.png)
+ ## 11th Work
+* chapter 5 NO.5.3 
+[11th_work](https://www.zybuluo.com/amaoaaaa/note/985411)
+
+第十一次作业成果直接展示
 
 ![](https://raw.githubusercontent.com/amanaaaa/computationalphysics_N2015301020165/master/work_10/3.png)
  
