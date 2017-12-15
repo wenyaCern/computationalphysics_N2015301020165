@@ -1,0 +1,35 @@
+from mpl_toolkits.mplot3d import Axes3D  
+from matplotlib import cm  
+from matplotlib.ticker import LinearLocator, FormatStrFormatter  
+import matplotlib.pyplot as plt  
+import math
+import numpy as np
+from numpy import *;#导入numpy的库函数
+import pylab as pl
+c=100.
+l=50.
+w=2*math.pi*c/l
+deltax=1
+deltat=deltax/c
+r=0.9979
+
+t=[0]
+y=np.zeros( (1,100) )
+y_old=np.zeros( (1,100) )
+Y=[y,y]
+while t[-1]<100.25:
+    for i in range(100):
+        y_old=Y[-2]# 保留前两次运算的结果
+        #迭代过程：
+        if i==0 :
+            y[0][i]=math.sin(w*t[-1])
+        elif i==99:
+            y[0][i]=0
+        else:
+            y[0][i]=2*(1-r*r)*y[0][i]-y_old[0][i]+r*r*(y[0][i+1]+y[0][i-1])
+        Y.append(y)
+    t.append(t[-1]+deltat)
+ys=y.flatten()
+print('r=',r,'波长=',l,'波速c=',c,'运行时常：',100.25)
+x in range (100)
+plt.plot(x,ys)       
