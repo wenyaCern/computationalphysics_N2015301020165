@@ -1,0 +1,71 @@
+from mpl_toolkits.mplot3d import Axes3D  
+from matplotlib import cm  
+from matplotlib.ticker import LinearLocator, FormatStrFormatter  
+import matplotlib.pyplot as plt  
+import math
+import numpy as np
+from numpy import *;#导入numpy的库函数
+import pylab as pl
+delta_x=0.01
+m=300 
+l=250  #设置了势阱的宽度
+def x():
+    x=[0.]
+    i=[0]
+    while i[-1]<=2*m+1:
+        x.append(i[-1]*delta_x)
+        i.append(i[-1]+1)
+    return x;
+def wave_function(inl,E,c1,c2):
+    psip=[inl]   
+    psi_c=[c1,c2]
+    i=[0]
+    while i[-1]<=m:
+        if i[-1]<=l:
+            psi_new=2*psi_c[-1]-psi_c[-2]-2*(E-0)*math.pow(delta_x,2)*psi_c[-1]
+        elif i[-1]>l:
+            psi_new=2*psi_c[-1]-psi_c[-2]-2*(E-10)*math.pow(delta_x,2)*psi_c[-1]
+        psi_c.append(psi_new)
+        psip.append(psi_c[-1])
+        i.append(i[-1]+1)
+    return psip;
+
+def ref(psi_t):
+    psi_a=list(reversed(psi_t))
+    psi_a.pop()
+    psi_aa=[]
+    for i in psi_a:
+        j=float(i)
+        psi_aa.append(-j)
+    psi=psi_aa
+    psi.extend(psi_t)
+    return psi;
+
+x1=x()
+psi_1c=wave_function(0.,0.8,-delta_x,0)
+psi_1=ref(psi_1c)
+
+x2=x()
+psi_2c=wave_function(0.,0.3,-delta_x,0)
+psi_2=ref(psi_2c)
+
+x3=x()
+psi_3c=wave_function(0.,0.67,-delta_x,0)
+psi_3=ref(psi_3c)
+
+x4=x()
+psi_4c=wave_function(0.,0.47,-delta_x,0)
+psi_4=ref(psi_4c)
+
+pl.figure(figsize=(10,8))
+plt.plot(x1,psi_1,label="E=0.8")
+plt.plot(x2,psi_2,label="E=0.3")
+plt.plot(x3,psi_3,label="E=0.67")
+plt.plot(x4,psi_4,label="E=0.47")
+plt.plot((0.5,0.5),(-3,3),'k',linestyle='--')
+plt.plot((5.5,5.5),(-3,3),'k',linestyle='--')
+
+plt.title('shooting methods: Square Well with V_out=10')
+plt.xlabel('x')
+plt.ylabel('wave function')
+plt.legend()
