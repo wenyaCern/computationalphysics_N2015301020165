@@ -1,0 +1,86 @@
+from mpl_toolkits.mplot3d import Axes3D  
+from matplotlib import cm  
+from matplotlib.ticker import LinearLocator, FormatStrFormatter  
+import matplotlib.pyplot as plt  
+import math
+import numpy as np
+from numpy import *;#导入numpy的库函数
+import pylab as pl
+delta_x=0.01
+#设定质量m=h=1
+e=10
+E=-1.6085
+m=1000
+xl=0.62/delta_x
+xR=0.9/delta_x
+def x():
+    x=[]
+    i=[0.0000001]
+    while i[-1]<=m:
+        x.append(i[-1]*delta_x)
+        i.append(i[-1]+1)
+    return x;
+def V(x):
+    V=[]
+    for i in range (m):
+        V.append(4*e*(math.pow(1/x[i],12)-math.pow(1/x[i],6)))
+    return V;
+def wave_function(E,c1,c2,V):
+    psip=[]   
+    psi_c=[c1,c2]
+    i=[0]
+    while i[-1]<m:
+        if i[-1]<xl:
+            psip.append(0)
+        elif i[-1]>=xl:
+            psi_new=2*psi_c[-1]-psi_c[-2]-2*(E-V[i[-1]])*math.pow(delta_x,2)*psi_c[-1]
+            psi_c.append(psi_new)
+            psip.append(psi_c[-1])
+        i.append(i[-1]+1)
+    return psip;
+
+def wave_functionR(E,c1,c2,V):
+    psip=[]   
+    psi_c=[c1,c2]
+    i=[0]
+    Va=list(reversed(V))
+    while i[-1]<m:
+        if i[-1]<xR:
+            psip.append(0)
+        elif i[-1]>=xR:
+            psi_new=2*psi_c[-1]-psi_c[-2]-2*(E-Va[i[-1]])*math.pow(delta_x,2)*psi_c[-1]
+            psi_c.append(psi_new)
+            psip.append(psi_c[-1])
+        i.append(i[-1]+1)
+    #print(psip)
+    psip.reverse()
+    return psip;
+
+'''def ref(psi_t):
+    psi_a=list(reversed(psi_t))
+    psi_a.pop()
+    psi_aa=[]
+    for i in psi_a:
+        j=float(i)
+        psi_aa.append(-j)
+    psi=psi_aa
+    psi.extend(psi_t)
+    return psi;'''
+
+x1=x()
+V=V(x1)
+psil=wave_function(E,-0.0001*delta_x,0,V)
+psiR=wave_functionR(E,-0.0001*delta_x,0,V)
+
+
+pl.figure(figsize=(10,8))
+plt.plot(x1,V,label="L-J potential",linestyle='-.')
+plt.plot(x1,psil,label="psiL E=-1.6085")
+plt.plot(x1,psiR,label="psiR E=-1.6085")
+#plt.plot((0.5,0.5),(-3,3),'k',linestyle='--')
+#plt.plot((5.5,5.5),(-3,3),'k',linestyle='--')
+plt.ylim(-11,20)
+plt.title('matching methods: lENNARE-JINES potential with e=10 σ=1')
+plt.xlabel('x')
+plt.ylabel('wave function')
+plt.legend()
