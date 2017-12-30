@@ -1,0 +1,58 @@
+from mpl_toolkits.mplot3d import Axes3D  
+from matplotlib import cm  
+from matplotlib.ticker import LinearLocator, FormatStrFormatter  
+import matplotlib.pyplot as plt  
+from numpy import *;#导入numpy的库函数
+import numpy as np; #这个方式使用numpy的函数时，需要以np.开头。
+import math
+import random
+
+delta_t=0.1
+def psi_inlR():   #real
+    psi=np.zeros( (21,21) )
+    for i in range (21):
+     for j in range (21):
+         psi[i][j]=math.exp(-(i-10)**2-(j-10)**2)*math.cos(i+j-20)
+    return psi
+def psi_inlI():   #imagni
+    psi=np.zeros( (21,21) )
+    for i in range (21):
+     for j in range (21):
+         psi[i][j]=math.exp(-(i-10)**2-(j-10)**2)*math.sin(i+j-20)
+    return psi
+
+def updateR(psiR,psiI):
+    psi_R=np.zeros( (21,21) )
+    for i in range (1,20):
+        for j in range (1,20):
+            psi_R[i][j]=psiR[i][j]+delta_t*((psiI[i+1][j]+psiI[i-1][j]-2*psiI[i][j])+(psiI[i][j+1]+psiI[i][j-1]-2*psiI[i][j]))
+    return psi_R
+def updateI(psiR,psiI):
+    psi_I=np.zeros( (21,21) )
+    for i in range (1,20):
+        for j in range (1,20):
+            psi_I[i][j]=psiI[i][j]-delta_t*((psiR[i+1][j]+psiR[i-1][j]-2*psiR[i][j])+(psiR[i][j+1]+psiR[i][j-1]-2*psiR[i][j]))
+    return psi_I
+def P(psiR,psiI):
+    P=np.zeros( (21,21) )
+    for i in range (21):
+        for j in range (21):
+            P[i][j]=psiR[i][j]**2 + psiI[i][j]**2
+    return P
+t=0
+psiR=psi_inlR()
+psiI=psi_inlI()
+while t<=3:
+    psiR=updateR(psiR,psiI)
+    psiI=updateI(psiR,psiI)
+    t=t+delta_t
+P=P(psiR,psiI)
+             
+fig = plt.figure()
+ax = fig.gca(projection='3d')
+fig.set_size_inches(15, 15,15)
+x=range(21)
+y=range(21)
+surf = ax.plot_surface(x, y, P, rstride=1, cstride=1, cmap=cm.coolwarm,
+                       linewidth=0,antialiased=False)        
+plt.show()
