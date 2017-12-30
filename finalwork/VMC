@@ -1,0 +1,73 @@
+from mpl_toolkits.mplot3d import Axes3D  
+from matplotlib import cm  
+from matplotlib.ticker import LinearLocator, FormatStrFormatter  
+import matplotlib.pyplot as plt  
+from numpy import *;#导入numpy的库函数
+import numpy as np; #这个方式使用numpy的函数时，需要以np.开头。
+import math
+import random
+# delta_x=delta_y=1
+def V():
+    kx=10
+    ky=40
+    V=np.zeros( (21,21) )
+    for i in range (21):
+        for j in range (21):
+            V[i][j]=0.5*kx*(i-10)*(i-10)+0.5*ky*(j-10)*(j-10)
+    return V
+def E(V,psi):
+    Hpsi=np.zeros( (21,21) )
+    EF=np.zeros( (21,21) )
+    square_psi=np.zeros( (21,21) )
+    for i in range (1,20):
+        for j in range (1,20):
+            Hpsi[i][j]=(psi[i+1][j]+psi[i-1][j]-2*psi[i][j])+(psi[i][j+1]+psi[i][j-1]-2*psi[i][j])+V[i][j]*psi[i][j] # H作用在psi的结果 
+            EF[i][j]=psi[i][j]*Hpsi[i][j]
+            square_psi[i][j]=psi[i][j]**2
+    E=np.sum(EF)/np.sum(square_psi) # 计算E
+    return E
+def psi_inl():   #trial function
+    psi=np.zeros( (21,21) )
+    for i in range (21):
+     for j in range (21):
+         if 2<i<18 and 2<j<18:
+             psi[i][j]=0.05
+         else:
+             psi[i][j]=0
+    return psi
+def update(psi):
+    psi_u=np.zeros( (21,21) )
+    delta_psi=0.01
+    n=random.randint(1,20)
+    m=random.randint(1,20)
+    for i in range (1,20):
+        for j in range (1,20):
+            if i==n and j==m:
+                psi_u[i][j]=psi[i][j]-delta_psi
+            else:
+                psi_u[i][j]=psi[i][j]
+    return psi_u
+V=V()
+psi_old=psi_inl()
+psi_new=update(psi_old)
+s=0
+while s<50000: 
+    #r=random.random()
+    E_old=E(V,psi_old)
+    E_new=E(V,psi_new)
+    q=E_old/E_new
+    if 1>q:
+        psi_old=psi_old
+    elif 1<q:
+        psi_old=psi_new
+    psi_new=update(psi_new)
+    s=s+1
+psi=psi_old           
+fig = plt.figure()
+ax = fig.gca(projection='3d')
+fig.set_size_inches(15, 15,15)
+x=range(21)
+y=range(21)
+x, y = np.meshgrid(x, y)
+surf = ax.plot_surface(x, y, psi)
+plt.show()
