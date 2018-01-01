@@ -72,4 +72,5 @@
 第十一次作业成果直接展示
 
 ![](https://github.com/amanaaaa/computationalphysics_N2015301020165/blob/master/work_11/11_11.png)
- 
+ ## final work
+[QUANTUNM MECHANICS](https://www.zybuluo.com/amaoaaaa/note/979433)
